@@ -52,16 +52,16 @@ public class TestStack
       System.out.println("\n------ Pile vide toArray:");
       printArray(s.toArray());
 
-      System.out.println("\n------ Pile vide push 'a' \"abc\" 4 :");
+      System.out.println("\n------ Pile vide push 'a' 4 \"abc\" :");
       s.push('a');
-      s.push("abc");
       s.push(4);
+      s.push("abc");
       System.out.println(s);
 
       System.out.println("\n------ Pile remplie modification des element de toArray:");
-      System.out.println("Remplacement de 4 par 8 dans l'array retourné.");
+      System.out.println("Remplacement de abc par abcd dans l'array retourné.");
       Object[] objects = s.toArray();
-      objects[0] = 8;
+      objects[0] += "d";
       System.out.println("Array modifié");
       printArray(objects);
       System.out.println("Etat de la pile");
