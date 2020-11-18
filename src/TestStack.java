@@ -58,11 +58,9 @@ public class TestStack
       s.push("abc");
       System.out.println(s);
 
-      System.out.println("\n------ Pile remplie modification des element de toArray:");
-      System.out.println("Remplacement de abc par abcd dans l'array retourné.");
+      System.out.println("\n------ Pile remplie toArray:");
       Object[] objects = s.toArray();
-      objects[0] += "d";
-      System.out.println("Array modifié");
+      System.out.println("Array ");
       printArray(objects);
       System.out.println("Etat de la pile");
       System.out.println(s);
