@@ -1,4 +1,7 @@
+import hanoi.gui.JHanoi;
 import util.Stack;
+
+import java.util.Arrays;
 
 public class Hanoi
 {
@@ -10,10 +13,15 @@ public class Hanoi
     private Stack s2;
     private Stack s3;
 
-    public Hanoi(int aDiskNumber)
+    public Hanoi(int disks, HanoiDisplay displayer)
+    {
+
+    }
+
+    public Hanoi(int disks)
     {
         this.turnCounter = 0;
-        this.diskNumber = aDiskNumber;
+        this.diskNumber = disks;
 
         maxTurn = (int) (Math.pow(2, diskNumber) - 1);
 
@@ -27,28 +35,43 @@ public class Hanoi
         }
     }
 
-    public void nextIteration()
+    public void solve()
     {
-
-        turnCounter++;
-        switch (turnCounter % 3)
+        while (!finished())
         {
-            case 0:
-                transfert(s3, s2);
-                break;
-            case 1:
-                transfert(s1, s2);
-                break;
-            case 2:
-                transfert(s1, s3);
-                break;
+            turnCounter++;
+            switch (turnCounter % 3)
+            {
+                case 0:
+                    transfert(s3, s2);
+                    break;
+                case 1:
+                    transfert(s1, s2);
+                    break;
+                case 2:
+                    transfert(s1, s3);
+                    break;
+            }
         }
-
     }
 
-    public boolean isFinish()
+    public int[][] status()
     {
-        return maxTurn == turnCounter;
+        int[][] t = new int[3][];
+        System.arraycopy(s1.toArray(), 0, t[0], 0, s1.size());
+        System.arraycopy(s2.toArray(), 0, t[1], 0, s2.size());
+        System.arraycopy(s3.toArray(), 0, t[2], 0, s3.size());
+        return t;
+    }
+
+    public boolean finished()
+    {
+        return s1.isEmpty() && s2.isEmpty() && maxTurn == turnCounter;
+    }
+
+    public int turn()
+    {
+        return turnCounter;
     }
 
     @Override

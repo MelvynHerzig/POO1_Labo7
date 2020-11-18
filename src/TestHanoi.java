@@ -1,16 +1,21 @@
+import hanoi.Hanoi;
+import hanoi.gui.JHanoi;
+
 public class TestHanoi
 {
     public static void main(String[] args)
     {
-        Hanoi hanoi = new Hanoi(Integer.parseInt(args[0]));
+        int disksNumber = Integer.parseInt(args[0]);
 
-
-        System.out.println(hanoi);
-
-        while(!hanoi.isFinish())
+        switch(args[1])
         {
-            hanoi.nextIteration();
-            System.out.println(hanoi);
+            case "graphique":
+                new JHanoi();
+                break;
+            case "console":
+                new Hanoi(disksNumber).solve();
+                break;
         }
+
     }
 }
