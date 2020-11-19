@@ -19,7 +19,7 @@ class Element
     Element(Object o, Element next)
     {
         this.value = o;
-        this.next = next;
+        this.next = next == this ? null : next;
     }
 
     /**
