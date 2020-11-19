@@ -1,8 +1,9 @@
 import hanoi.Hanoi;
 import hanoi.gui.JHanoi;
 
+
 /**
- * Classe de test pour vérifier le bon fonctionnement de Hanoi
+ * Classe de test pour vérifier le bon fonctionnement de hanoi.Hanoi
  *
  * @author Forestier Quentin, Herzig Melvyn
  * @version 18.11.2020
@@ -11,15 +12,17 @@ public class TestHanoi
 {
     public static void main(String[] args)
     {
-        Hanoi hanoi = new Hanoi(Integer.parseInt(args[0]));
+        int disksNumber = Integer.parseInt(args[0]);
 
-
-        System.out.println(hanoi);
-
-        while(!hanoi.isFinish())
+        switch(args[1])
         {
-            hanoi.nextIteration();
-            System.out.println(hanoi);
+            case "graphique":
+                new JHanoi();
+                break;
+            case "console":
+                new Hanoi(disksNumber).solve();
+                break;
         }
+
     }
 }
