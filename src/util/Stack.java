@@ -58,6 +58,7 @@ public class Stack
      * Convertit la pile en chaîne de caractères.
      * @return Pile convertie en chaîne de caractères.
      */
+    @Override
     public String toString()
     {
         StringBuilder data = new StringBuilder();
@@ -109,7 +110,7 @@ public class Stack
         return size == 0;
     }
 
-    /*
+    /**
      * @return Renvoie la taille de la pile
      */
     public int size()
