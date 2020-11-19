@@ -160,31 +160,31 @@ public class Hanoi
      * Transfert l'élément le plus petit entre les 2 sommets des piles sur la
      * bonne pile
      *
-     * @param src
-     * @param dest
+     * @param s1 Stack contenant ou recevant le disque qui va être déplacé
+     * @param s2 Stack contenant ou recevant le disque qui va être déplacé
      */
-    private void transfer(Stack src, Stack dest)
+    private void transfer(Stack s1, Stack s2)
     {
 
-        if (src.isEmpty())
+        if (s1.isEmpty())
         {
-            src.push(dest.top());
-            dest.pop();
+            s1.push(s2.top());
+            s2.pop();
         }
-        else if (dest.isEmpty())
+        else if (s2.isEmpty())
         {
-            dest.push(src.top());
-            src.pop();
+            s2.push(s1.top());
+            s1.pop();
         }
-        else if ((int) src.top() > (int) dest.top())
+        else if ((int) s1.top() > (int) s2.top())
         {
-            src.push(dest.top());
-            dest.pop();
+            s1.push(s2.top());
+            s2.pop();
         }
         else
         {
-            dest.push(src.top());
-            src.pop();
+            s2.push(s1.top());
+            s1.pop();
         }
     }
 }
