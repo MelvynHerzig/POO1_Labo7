@@ -12,14 +12,13 @@ public class TestHanoi
 {
     public static void main(String[] args)
     {
-        int disksNumber = Integer.parseInt(args[0]);
-
-        switch(args[1])
+        switch(args[0])
         {
             case "graphique":
                 new JHanoi();
                 break;
             case "console":
+                int disksNumber = Integer.parseInt(args[1]);
                 new Hanoi(disksNumber).solve();
                 break;
         }

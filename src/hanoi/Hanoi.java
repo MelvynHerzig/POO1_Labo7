@@ -26,11 +26,17 @@ public class Hanoi
      * Constructeur générique de la classe
      *
      * @param disks     Nombre de disques
-     * @param displayer Objet permettant l'affichage des aiguilles d'hanoi.Hanoi
+     * @param displayer Objet permettant l'affichage des aiguilles d'hanoi.
+     * @throws RuntimeException Si le nombre de disque est négatif.
      */
     public Hanoi(int disks, HanoiDisplayer displayer)
 
     {
+        if(disks < 0)
+        {
+            throw new RuntimeException("Nombre de disque inférieur à 0 impossible.");
+        }
+
         this.turnCounter = 0;
         this.diskNumber = disks;
 
@@ -53,6 +59,7 @@ public class Hanoi
      * Constructeur avec displayer par défaut
      *
      * @param disks
+     * @throws RuntimeException Si le nombre de disque est négatif.
      */
     public Hanoi(int disks)
     {
